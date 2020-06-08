@@ -18,7 +18,7 @@ RUN curl -sS https://getcomposer.org/installer -o composer-setup.php &&\
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 RUN  rm -f /var/www/html/*.* &&\
-    composer create-project --repository-url=https://476cc07146b9b7e6ccc3d763029df441:eac67aa6cb92ab2a43da6c94b315b514@repo.magento.com/ magento/project-community-edition /var/www/html
+    composer create-project --repository-url=https://$magento_user:$magento_password@repo.magento.com/ magento/project-community-edition /var/www/html
 RUN cd /var/www/html &&\
     find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} + &&\
     find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
