@@ -1,5 +1,4 @@
 FROM jane3030/nginx-php7.3-fpm:1.0.0
-
 ENV BASE_URL=http://localhost
 ENV DB_HOST=localhost:3306
 ENV DB_NAME=ecommerce
