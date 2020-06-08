@@ -1,4 +1,3 @@
-# FROM registry.gitlab.com/sourceberry-work/docker-images/nginx-php-fpm-dev
 FROM nginx-php7.3-fpm
 
 ENV BASE_URL=http://localhost
