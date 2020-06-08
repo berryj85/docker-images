@@ -17,8 +17,7 @@ ENV ADMIN_REWRITE=1
 ENV BACKEND_URL=/store-admin
 ENV STORE_SESSION=file
 ENV REDIS_HOST=localhost
-#RUN export MAGENTO_USER=$magento_user
-#RUN export MAGENTO_PASSWORD=$magento_password
+
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php &&\
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
