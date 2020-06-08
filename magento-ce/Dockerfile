@@ -1,7 +1,7 @@
 FROM jane3030/nginx-php7.3-fpm:1.0.0
 
-ARG magento_user
-ARG magento_password
+ARG magento_user=$magento_user
+ARG magento_password=$magento_password
 
 ENV BASE_URL=http://localhost
 ENV DB_HOST=localhost:3306
