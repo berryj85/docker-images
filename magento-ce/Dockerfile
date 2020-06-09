@@ -1,4 +1,4 @@
-FROM jane3030/nginx-php7.3-fpm:1.0.0
+FROM jane3030/nginx-php7.3-fpm
 
 ARG magento_user
 ARG magento_password
