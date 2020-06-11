@@ -7,3 +7,6 @@ if [ "$STORE_SESSION" = redis ] ; then
 fi
 sed -i -e "s/memory_limit\ =\ 128M/memory_limit\ =\ 2G/g" /etc/php/7.3/fpm/php.ini
 sed -i -e "s/\;opcache\.enable=1/opcache\.enable=1/g" /etc/php/7.3/fpm/php.ini
+sed -i -e "s/\;max_input_vars\ =\ 1000/max_input_vars\ =\ 10000/g" /etc/php/7.3/fpm/php.ini
+
+
