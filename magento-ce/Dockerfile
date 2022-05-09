@@ -1,5 +1,5 @@
 # FROM registry.gitlab.com/sourceberry-work/docker-images/nginx-php-fpm-dev
-FROM nginx-php7.3-fpm
+FROM nginx-php7.4-fpm
 
 ENV BASE_URL=http://localhost
 ENV DB_HOST=localhost:3306
