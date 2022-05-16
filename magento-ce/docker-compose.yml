@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  db:
+    image: mariadb:10.5.3-bionic
+    restart: unless-stopped
+    ports:
+      - 13306:3306
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: magento
+      MYSQL_USER: dbadmin
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    healthcheck:
+      test: ["CMD-SHELL", 'mysqladmin -uroot -ppassword ping']
+      interval: 10s
+      timeout: 2s
+      retries: 10
+
+  redis:
+    image: redis
+    restart: unless-stopped
+    ports:
+      - 16379:6379
+  web:
+    build: .
+    restart: on-failure:3
+    ports:
+      - 18080:80
+      - 1443:443
+    depends_on:
+      - db
+      - redis
+    environment:
+      BASE_URL: http://127.0.0.1:18080
+      DB_HOST: db
+      DB_NAME: magento
+      DB_USERNAME: dbadmin
+      DB_PASSWORD: password
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: admin123
+      STORE_SESSION: redis
+      REDIS_HOST: redis
