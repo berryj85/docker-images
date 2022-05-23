@@ -1,5 +1,5 @@
 # FROM registry.gitlab.com/sourceberry-work/docker-images/nginx-php-fpm-dev
-FROM nginx-php7.4-fpm
+FROM jane3030/nginx-php7.4-fpm:1.0.0
 
 ENV BASE_URL=http://localhost
 ENV DB_HOST=localhost:3306
@@ -12,7 +12,7 @@ ENV ADMIN_EMAIL=admin@admin.com
 ENV ADMIN_USERNAME=admin
 ENV ADMIN_PASSWORD=admin123
 ENV ADMIN_REWRITE=1
-ENV BACKEND_URL=/store-admin
+ENV BACKEND_URL=store-admin
 ENV STORE_SESSION=file
 ENV REDIS_HOST=localhost
 ENV MAGENTO_USERNAME=476cc07146b9b7e6ccc3d763029df441
@@ -34,6 +34,5 @@ RUN sed -i -e "s/\;opcache\.enable=1/opcache\.enable=1/g" /etc/php/7.4/fpm/php.i
 
 COPY ./conf/application /etc/nginx/sites-enabled/application
 COPY ./install_magento.sh /var/install_magento.sh
-CMD [ "sh","/var/install_magento.sh" ]
-WORKDIR /var/www/html
+ENTRYPOINT ["sh","/var/install_magento.sh"]
 EXPOSE 80
