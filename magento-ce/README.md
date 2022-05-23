@@ -8,6 +8,13 @@ Prepare Docker images
 cd nginx-php7.4-fpm
 docker build -t jane3030/nginx-php7.4-fpm:1.0.0 .
 ```
+3. cd to magento-ce
+4. run command build image magento
+
+```
+cd nginx-php7.4-fpm
+docker build -t jane3030/nginx7.4-magento-ce-2.4.4:1.0.1 .
+```
 
 Run magento-ce
 --------------
@@ -26,4 +33,11 @@ Access magento backoffice
 username: admin
 
 password: admin123
+
+tail web log
+------------
+```
+docker logs --tail 1000 -f web
+```
+
 
